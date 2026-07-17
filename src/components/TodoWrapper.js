@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { TodoForm } from './TodoForm'
 import { v4 as uuidv4 } from 'uuid'
 import { Todo } from './Todo';
-import { faEdit } from '@fortawesome/free-regular-svg-icons';
 import { EditTodoForm } from './EditTodoForm';
 uuidv4();
 
@@ -35,7 +34,7 @@ export const TodoWrapper = () =>{
             <TodoForm addTodo={addTodo}/>
             {todos.map((todo) => (
                 todo.isEditing ? (
-                    <EditTodoForm editTodo={editTask} task={todo}/>
+                    <EditTodoForm editTodo={editTask} task={todo} key={todo.id}/>
                 ) : (
                     <Todo task={todo} key={todo.id} toggleComplete={toggleComplete} deleteTodo={deleteTodo} editTodo={editTodo}/>
                 )
